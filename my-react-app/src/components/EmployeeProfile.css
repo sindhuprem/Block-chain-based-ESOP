@@ -1,0 +1,79 @@
+:root {
+  --primary: #4f46e5;
+  --bg: #f5f7fb;
+}
+
+.profile-page {
+  min-height: 100vh;
+  background: var(--bg);
+  padding: 40px;
+}
+
+.profile-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+/* Grid Layout */
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* Card */
+.profile-card {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  transition: 0.3s;
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+/* Avatar */
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  background: var(--primary);
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+/* Name */
+.profile-name {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Role */
+.profile-role {
+  color: #6b7280;
+  margin-bottom: 15px;
+}
+
+/* Details */
+.profile-details {
+  text-align: left;
+  margin-top: 15px;
+}
+
+.profile-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}

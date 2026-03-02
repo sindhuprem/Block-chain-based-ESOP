@@ -1,0 +1,7 @@
+node_modules/
+my-react-app/node_modules/
+my-react-app/public/node_modules/
+build/
+dist/
+.env
+*.log

@@ -1,0 +1,77 @@
+/* Primary Theme Color */
+:root {
+    --primary-color: #4f46e5;
+    --primary-hover: #4338ca;
+  }
+  
+  /* Navigation Links */
+  .nav-link {
+    font-weight: 500;
+    color: #374151;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: var(--primary-color);
+    transform: translateY(-1px);
+  }
+  
+  /* Dashboard Cards */
+  .card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Primary Text */
+  .text-primary-600 {
+    color: var(--primary-color);
+  }
+  
+  /* Progress Bar Styling */
+  .progress-bar {
+    width: 100%;
+    background-color: #e5e7eb;
+    height: 8px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .progress-bar-fill {
+    background-color: var(--primary-color);
+    height: 8px;
+    border-radius: 10px;
+  }
+  
+  /* Table Styling */
+  table {
+    border-collapse: collapse;
+  }
+  
+  th {
+    font-weight: 600;
+    padding: 12px 0;
+    color: #6b7280;
+  }
+  
+  td {
+    padding: 12px 0;
+    font-size: 14px;
+  }
+  
+  tr:hover {
+    background-color: #f9fafb;
+  }
+  
+  /* Welcome Heading */
+  h2 {
+    color: #1f2937;
+  }
+  

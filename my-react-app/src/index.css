@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+      'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+      'Helvetica Neue', sans-serif;
+  }
+}
+
+/* Custom component styles */
+@layer components {
+
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg;
+  }
+
+  .btn-primary {
+    @apply w-full bg-blue-600 text-white py-3 px-4 rounded-lg;
+  }
+
+  .select-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg bg-white;
+  }
+
+  .nav-link {
+    @apply text-gray-700 hover:text-blue-600 font-medium cursor-pointer;
+  }
+
+  .card {
+    @apply bg-white p-4 rounded-xl shadow;
+  }
+
+}
