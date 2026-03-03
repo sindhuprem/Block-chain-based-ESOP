@@ -1,17 +1,23 @@
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from flask_cors import CORS
+from extensions import db
 
-app = Flask(__name__)
+def create_app():
+    app = Flask(__name__)
 
-CORS(app)
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:ESOP@localhost:5433/esop_db'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost/esop_db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    db.init_app(app)
 
-db = SQLAlchemy(app)
+    from routes import main
+    app.register_blueprint(main)
 
-from routes import *
+    return app
+
+
+app = create_app()
 
 if __name__ == "__main__":
+    with app.app_context():
+        db.create_all()
     app.run(debug=True)
