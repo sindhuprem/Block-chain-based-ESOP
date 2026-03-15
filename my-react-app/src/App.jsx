@@ -1,7 +1,10 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 
+// Home & Auth
+import Home from "./components/Home";
 import LoginPage from "./components/LoginPage";
+import SignupPage from "./components/SignupPage";
 
 // Employee pages
 import EmployeeDashboard from "./components/EmployeeDashboard";
@@ -32,8 +35,12 @@ function App() {
   return (
     <Routes>
 
-      {/* Login */}
-      <Route path="/" element={<LoginPage />} />
+      {/* Home */}
+      <Route path="/" element={<Home />} />
+
+      {/* Authentication */}
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<SignupPage />} />
 
       {/* Employee only */}
       <Route path="/employee-dashboard" element={<PrivateRoute allowedRoles={["employee"]}><EmployeeDashboard /></PrivateRoute>} />
