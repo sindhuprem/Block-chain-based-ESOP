@@ -2,41 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom base styles */
-@layer base {
-  * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-      'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-      'Helvetica Neue', sans-serif;
-  }
-}
-
-/* Custom component styles */
 @layer components {
-
-  .input-field {
-    @apply w-full px-4 py-3 border border-gray-300 rounded-lg;
-  }
-
-  .btn-primary {
-    @apply w-full bg-blue-600 text-white py-3 px-4 rounded-lg;
-  }
-
-  .select-field {
-    @apply w-full px-4 py-3 border border-gray-300 rounded-lg bg-white;
-  }
-
   .nav-link {
-    @apply text-gray-700 hover:text-blue-600 font-medium cursor-pointer;
+    @apply text-gray-600 hover:text-blue-600 font-medium transition-colors;
   }
-
   .card {
-    @apply bg-white p-4 rounded-xl shadow;
+    @apply bg-white rounded shadow p-4;
   }
-
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-medium w-full transition-colors;
+  }
+  .input-field {
+    @apply w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400;
+  }
+  .select-field {
+    @apply w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white;
+  }
+  .progress-bar {
+    @apply w-full bg-gray-200 rounded-full h-2;
+  }
+  .progress-bar-fill {
+    @apply bg-blue-500 h-2 rounded-full;
+  }
 }

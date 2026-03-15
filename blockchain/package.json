@@ -1,0 +1,32 @@
+{
+  "name": "esop-blockchain",
+  "version": "1.0.0",
+  "description": "Blockchain module for ESOP Management Platform",
+  "main": "truffle-config.js",
+  "scripts": {
+    "test": "truffle test",
+    "compile": "truffle compile",
+    "migrate": "truffle migrate --reset",
+    "ganache": "ganache-cli",
+    "deploy": "truffle migrate --network development",
+    "interact": "truffle exec scripts/interact.js"
+  },
+  "keywords": [
+    "blockchain",
+    "esop",
+    "ethereum",
+    "smart-contracts"
+  ],
+  "author": "Your Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@truffle/hdwallet-provider": "^2.1.15",
+    "chai": "^4.3.10",
+    "dotenv": "^16.3.1",
+    "ganache": "^7.9.1",
+    "truffle": "^5.11.5"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.0"
+  }
+}

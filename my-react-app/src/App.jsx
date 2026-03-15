@@ -1,4 +1,5 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useAuth } from "./AuthContext";
 
 // Home & Auth
 import Home from "./components/Home";
@@ -21,6 +22,15 @@ import HRReports from "./components/HRReports";
 // Admin pages
 import AdminDashboard from "./components/AdminDashboard";
 
+// Protected route — redirects to login if not authenticated
+// If allowedRoles provided, also checks role
+const PrivateRoute = ({ children, allowedRoles }) => {
+  const { user } = useAuth();
+  if (!user) return <Navigate to="/" replace />;
+  if (allowedRoles && !allowedRoles.includes(user.role)) return <Navigate to="/" replace />;
+  return children;
+};
+
 function App() {
   return (
     <Routes>
@@ -32,21 +42,23 @@ function App() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
 
-      {/* Employee */}
-      <Route path="/employee-dashboard" element={<EmployeeDashboard />} />
-      <Route path="/my-grants" element={<MyGrants />} />
-      <Route path="/exercise" element={<ExerciseShares />} />
-      <Route path="/profile" element={<EmployeeProfile />} />
-      <Route path="/notifications" element={<Notifications />} />
+      {/* Employee only */}
+      <Route path="/employee-dashboard" element={<PrivateRoute allowedRoles={["employee"]}><EmployeeDashboard /></PrivateRoute>} />
+      <Route path="/my-grants"          element={<PrivateRoute allowedRoles={["employee"]}><MyGrants /></PrivateRoute>} />
+      <Route path="/exercise"           element={<PrivateRoute allowedRoles={["employee"]}><ExerciseShares /></PrivateRoute>} />
+      <Route path="/profile"            element={<PrivateRoute allowedRoles={["employee"]}><EmployeeProfile /></PrivateRoute>} />
+      <Route path="/notifications"      element={<PrivateRoute><Notifications /></PrivateRoute>} />
 
-      {/* HR */}
-      <Route path="/hr-dashboard" element={<HRDashboard />} />
-      <Route path="/hr-employees" element={<HREmployees />} />
-      <Route path="/grant-esop" element={<GrantESOP />} />
-      <Route path="/hr-reports" element={<HRReports />} />
+      {/* HR only */}
+      <Route path="/hr-dashboard"  element={<PrivateRoute allowedRoles={["hr"]}><HRDashboard /></PrivateRoute>} />
 
-      {/* Admin */}
-      <Route path="/admin-dashboard" element={<AdminDashboard />} />
+      {/* HR + Admin shared */}
+      <Route path="/hr-employees"  element={<PrivateRoute allowedRoles={["hr", "admin"]}><HREmployees /></PrivateRoute>} />
+      <Route path="/grant-esop"    element={<PrivateRoute allowedRoles={["hr", "admin"]}><GrantESOP /></PrivateRoute>} />
+      <Route path="/hr-reports"    element={<PrivateRoute allowedRoles={["hr", "admin"]}><HRReports /></PrivateRoute>} />
+
+      {/* Admin only */}
+      <Route path="/admin-dashboard" element={<PrivateRoute allowedRoles={["admin"]}><AdminDashboard /></PrivateRoute>} />
 
     </Routes>
   );

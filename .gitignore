@@ -1,8 +1,44 @@
+# Python virtual environment
+venv/
+backend/venv/
 
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# Node modules
 node_modules/
 my-react-app/node_modules/
 my-react-app/public/node_modules/
+
+# React build files
 build/
 dist/
-.env
-*.log
+
+# Solidity / Truffle build files
+blockchain/build/
+artifacts/
+cache/
+
+# Ganache database
+blockchain/ganache-db/
+
+# SQLite database
+backend/instance/
+backend/*.db
+*.db
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code settings (optional)
+.vscode/
